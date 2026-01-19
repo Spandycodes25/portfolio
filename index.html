@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spandan Surdas | Data Scientist & AI Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        :root { --bg: #050505; --card: #0f0f0f; --border: #1f1f1f; --accent: #3b82f6; }
+        body { background-color: var(--bg); color: #e5e7eb; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        
+        /* Bento Card Styles */
+        .bento-card { background: var(--card); border: 1px solid var(--border); border-radius: 28px; padding: 2rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
+        .bento-card:hover { border-color: #3b82f6; transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.15); }
+        
+        /* Utility Styles */
+        .skill-tag { border: 1px solid; padding: 5px 14px; border-radius: 10px; font-size: 0.8rem; font-weight: 500; transition: all 0.3s ease; }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        html { scroll-behavior: smooth; }
+        
+        /* Floating Nav */
+        .nav-float { background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(12px); border: 1px solid #222; }
+
+        /* Modal for Viewing Resume */
+        #resumeModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { background: white; width: 100%; max-width: 900px; height: 90vh; border-radius: 20px; overflow: hidden; position: relative; }
+    </style>
+</head>
+<body class="p-4 md:p-12 lg:p-16">
+
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 nav-float px-8 py-4 rounded-full hidden md:flex space-x-6 text-xs font-bold uppercase tracking-widest">
+        <a href="#home" class="hover:text-blue-400 transition">Home</a>
+        <a href="#education" class="hover:text-blue-400 transition">Education</a>
+        <a href="#experience" class="hover:text-blue-400 transition">Experience</a>
+        <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+        <a href="#research" class="hover:text-blue-400 transition">Research</a>
+        <a href="#contact" class="hover:text-blue-400 transition text-blue-500">Contact</a>
+    </nav>
+
+    <div id="resumeModal">
+        <div class="modal-content">
+            <button onclick="closeResume()" class="absolute top-4 right-4 bg-red-500 text-white w-10 h-10 rounded-full z-50 shadow-lg flex items-center justify-center">✕</button>
+            <iframe src="Resume_New.pdf" width="100%" height="100%"></iframe>
+        </div>
+    </div>
+
+    <div id="home" class="max-w-7xl mx-auto pt-10">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
+            <div class="lg:col-span-4 bento-card border-blue-900/20" data-aos="fade-right">
+                <div class="flex-1">
+                    <div class="w-16 h-16 bg-blue-600 rounded-3xl mb-8 flex items-center justify-center text-3xl font-bold shadow-lg shadow-blue-500/20">S</div>
+                    <h2 class="text-3xl font-extrabold tracking-tight">Spandan Surdas</h2>
+                    <p class="text-zinc-500 font-medium mt-1">Data Science Graduate Student & AI Researcher</p>
+                    
+                    <div class="mt-10 space-y-4 text-sm font-medium text-zinc-400">
+                        <p class="flex items-center"><i class="fas fa-envelope mr-4 text-blue-500 text-lg"></i> spandan.surdas25@gmail.com</p>
+                        <p class="flex items-center"><i class="fas fa-phone mr-4 text-blue-500 text-lg"></i> +1 (857) 313-4740</p>
+                        <p class="flex items-center"><i class="fas fa-location-dot mr-4 text-blue-500 text-lg"></i> Boston, MA</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 mt-10">
+                    <button onclick="openResume()" class="w-full bg-white text-black py-3 rounded-xl font-bold hover:bg-zinc-200 transition flex items-center justify-center gap-2">
+                        <i class="fas fa-eye"></i> View Resume
+                    </button>
+                    <a href="Resume_New.pdf" download class="w-full bg-zinc-800 text-white py-3 rounded-xl font-bold hover:bg-zinc-700 transition flex items-center justify-center gap-2">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 bento-card bg-gradient-to-br from-zinc-900 via-black to-black border-zinc-800" data-aos="fade-up">
+                <div class="flex-1 flex flex-col justify-center">
+                    <div class="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-xs font-bold uppercase tracking-widest mb-6 w-fit">
+                        Open for Internships 2026
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-extrabold mb-8 leading-[1.1] tracking-tighter">
+                        Building <span class="gradient-text">Systems that Drive</span> Impact.
+                    </h1>
+                    <p class="text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed mb-10">
+                        MS Data Science student at Northeastern University. Building predictive models, analytics pipelines, and machine learning solutions for healthcare diagnostics, financial risk, and data-driven decision making.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-blue-500/25">Hire Me</a>
+                        <a href="#projects" class="bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700 px-10 py-4 rounded-2xl font-bold transition-all">View Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="education" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 pt-10">
+            <div class="bento-card" data-aos="fade-up">
+                <div class="flex items-start justify-between mb-6">
+                    <h3 class="text-xs font-mono text-blue-500 uppercase tracking-widest">Education 01</h3>
+                    <span class="text-xs text-zinc-600 font-bold italic">Grad May 2027</span>
+                </div>
+                <h4 class="text-2xl font-bold mb-1">Northeastern University</h4>
+                <p class="text-zinc-400 font-medium">Masters of Science in Data Science</p>
+                <div class="mt-6 pt-6 border-t border-zinc-900">
+                    <p class="text-xs text-zinc-500 uppercase font-bold mb-3 tracking-wider">Key Coursework</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Essentials Of Data Science, Algorithms, Introduction to Machine Learning and Pattern Recognition, Database Management Systems.</p>
+                </div>
+            </div>
+            <div class="bento-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-start justify-between mb-6">
+                    <h3 class="text-xs font-mono text-purple-500 uppercase tracking-widest">Education 02</h3>
+                    <span class="text-xs text-zinc-600 font-bold italic">May 2025 Grad</span>
+                </div>
+                <h4 class="text-2xl font-bold mb-1">Pimpri Chinchwad College Of Engineering</h4>
+                <p class="text-zinc-400 font-medium">Bachelor of Technology, Computer Engineering</p>
+                <div class="mt-6 pt-6 border-t border-zinc-900">
+                    <p class="text-xs text-zinc-500 uppercase font-bold mb-3 tracking-wider">Key Coursework</p>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Image and Video Processing, Machine Learning, Cloud Computing, Data Mining and Warehousing, DSA.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-card mb-6" data-aos="fade-up">
+            <h3 class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-10">Technical Skillset</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h4 class="text-sm font-extrabold mb-6 text-white uppercase tracking-tight">Programming & Analysis</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag border-blue-500/20 text-blue-400/80 bg-blue-500/5">Python</span>
+                        <span class="skill-tag border-blue-500/20 text-blue-400/80 bg-blue-500/5">C++</span>
+                        <span class="skill-tag border-blue-500/20 text-blue-400/80 bg-blue-500/5">SQL</span>
+                        <span class="skill-tag border-blue-500/20 text-blue-400/80 bg-blue-500/5">Excel VBA</span>
+                        <span class="skill-tag border-blue-500/20 text-blue-400/80 bg-blue-500/5">OpenCV</span>
+                        <span class="skill-tag border-blue-500/20 text-blue-400/80 bg-blue-500/5">Scikit-Learn</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-sm font-extrabold mb-6 text-white uppercase tracking-tight">ML & Risk Modeling</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag border-orange-500/20 text-orange-400/80 bg-orange-500/5">XGBoost</span>
+                        <span class="skill-tag border-orange-500/20 text-orange-400/80 bg-orange-500/5">SHAP</span>
+                        <span class="skill-tag border-orange-500/20 text-orange-400/80 bg-orange-500/5">K-Means</span>
+                        <span class="skill-tag border-orange-500/20 text-orange-400/80 bg-orange-500/5">RFM Analysis</span>
+                        <span class="skill-tag border-orange-500/20 text-orange-400/80 bg-orange-500/5">Feature Engineering</span>
+                        <span class="skill-tag border-orange-500/20 text-orange-400/80 bg-orange-500/5">Model Evaluation</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-sm font-extrabold mb-6 text-white uppercase tracking-tight">Frameworks & Cloud</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag border-emerald-500/20 text-emerald-400/80 bg-emerald-500/5">AWS (EC2, S3)</span>
+                        <span class="skill-tag border-emerald-500/20 text-emerald-400/80 bg-emerald-500/5">Tableau</span>
+                        <span class="skill-tag border-emerald-500/20 text-emerald-400/80 bg-emerald-500/5">Streamlit</span>
+                        <span class="skill-tag border-emerald-500/20 text-emerald-400/80 bg-emerald-500/5">Power BI</span>
+                        <span class="skill-tag border-emerald-500/20 text-emerald-400/80 bg-emerald-500/5">Plotly</span>
+                        <span class="skill-tag border-emerald-500/20 text-emerald-400/80 bg-emerald-500/5">Matplotlib</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="experience" class="bento-card mb-6 pt-10" data-aos="fade-up">
+            <h3 class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-10">Professional Experience</h3>
+            <div class="space-y-12">
+                <div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                        <h4 class="text-2xl font-bold text-white">Data Science & AI Consultant</h4>
+                        <span class="text-sm font-mono text-blue-500 bg-blue-500/10 px-3 py-1 rounded-lg">Medtigo | May 2025 — Aug 2025</span>
+                    </div>
+                    <ul class="text-zinc-400 text-sm md:text-base space-y-3 max-w-4xl">
+                        <li class="flex gap-3"><i class="fas fa-check text-blue-500 mt-1"></i> Engineered an AMR prediction system delivering 92% accuracy across six drug classes.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-blue-500 mt-1"></i> Designed a RAG-based AI chatbot, cutting clinical query response time by 40%.</li>
+                    </ul>
+                </div>
+                <div class="pt-10 border-t border-zinc-900">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                        <h4 class="text-2xl font-bold text-white">Research Internship</h4>
+                        <span class="text-sm font-mono text-purple-500 bg-purple-500/10 px-3 py-1 rounded-lg">UTP Malaysia | June 2024 — Sept 2024</span>
+                    </div>
+                    <ul class="text-zinc-400 text-sm md:text-base space-y-3 max-w-4xl">
+                        <li class="flex gap-3"><i class="fas fa-check text-purple-500 mt-1"></i> Developed disease-mapping ML models with 89% accuracy on real-world healthcare data.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-purple-500 mt-1"></i> Implemented clustering pipelines to identify health risk patterns in multidisciplinary datasets.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h3 id="projects" class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-6 mt-12 px-2 pt-10">Academic Projects</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            
+            <div class="bento-card border-orange-500/10" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="text-orange-500 mb-4 text-2xl"><i class="fas fa-shield-alt"></i></div>
+                    <h4 class="text-xl font-bold mb-3">Credit Risk Assessment System</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-4">Analyzing 2.25M loans to predict defaults with 73.77% accuracy. Estimated $93.3M revenue impact through threshold optimization.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag border-orange-500/20 text-orange-400/80 bg-orange-500/5">Python</span>
+                        <span class="skill-tag border-orange-500/20 text-orange-400/80 bg-orange-500/5">XGBoost</span>
+                        <span class="skill-tag border-orange-500/20 text-orange-400/80 bg-orange-500/5">Tableau</span>
+                        <span class="skill-tag border-orange-500/20 text-orange-400/80 bg-orange-500/5">SQL</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <a href="https://github.com/Spandycodes25/credit-risk-assessment" target="_blank" class="text-[10px] font-bold text-orange-500 hover:text-white flex items-center gap-2 tracking-widest uppercase transition-all">Source Code <i class="fab fa-github"></i></a>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Jan 2026</span>
+                </div>
+            </div>
+
+            <div class="bento-card border-blue-500/10" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex-1">
+                    <div class="text-blue-500 mb-4 text-2xl"><i class="fas fa-shopping-cart"></i></div>
+                    <h4 class="text-xl font-bold mb-3">E-Commerce Customer Segmentation</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-4">Engineered an end-to-end pipeline to analyze 1M+ transactions ($17.7M revenue), segmenting 5,878 customers via RFM & K-Means clustering.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag border-blue-500/20 text-blue-400/80 bg-blue-500/5">Python</span>
+                        <span class="skill-tag border-blue-500/20 text-blue-400/80 bg-blue-500/5">K-Means</span>
+                        <span class="skill-tag border-blue-500/20 text-blue-400/80 bg-blue-500/5">RFM</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <a href="https://github.com/Spandycodes25/customer-segmentation-dashboard" target="_blank" class="text-[10px] font-bold text-blue-500 hover:text-white flex items-center gap-2 tracking-widest uppercase transition-all">Source Code <i class="fab fa-github"></i></a>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Jan 2026</span>
+                </div>
+            </div>
+
+            <div class="bento-card border-cyan-500/10" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex-1">
+                    <div class="text-cyan-500 mb-4 text-2xl"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h4 class="text-xl font-bold mb-3">Healthcare Cost Analytics</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-4">Predictive engine identifying BMI and Smoking as primary cost drivers. Built with interactive Streamlit UI.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag border-cyan-500/20 text-cyan-400/80 bg-cyan-500/5">Python</span>
+                        <span class="skill-tag border-cyan-500/20 text-cyan-400/80 bg-cyan-500/5">Streamlit</span>
+                        <span class="skill-tag border-cyan-500/20 text-cyan-400/80 bg-cyan-500/5">Random Forest</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <a href="https://github.com/Spandycodes25/healthcare-cost-analysis-dashboard" target="_blank" class="text-[10px] font-bold text-cyan-500 hover:text-white flex items-center gap-2 tracking-widest uppercase transition-all">Source Code <i class="fab fa-github"></i></a>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Jan 2026</span>
+                </div>
+            </div>
+
+            <div class="bento-card border-emerald-500/10" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="text-emerald-500 mb-4 text-2xl"><i class="fas fa-chart-pie"></i></div>
+                    <h4 class="text-xl font-bold mb-3">BRFSS Health Survey Dashboard</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-4">Dashboard for the CDC’s behavioral risk system. Analyzes 400k+ records using high-speed Parquet data retrieval.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag border-emerald-500/20 text-emerald-400/80 bg-emerald-500/5">R</span>
+                        <span class="skill-tag border-emerald-500/20 text-emerald-400/80 bg-emerald-500/5">Parquet</span>
+                        <span class="skill-tag border-emerald-500/20 text-emerald-400/80 bg-emerald-500/5">CDC Data</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <a href="https://github.com/Spandycodes25/BRFSS-Health-Survey-Dashboard" target="_blank" class="text-[10px] font-bold text-emerald-500 hover:text-white flex items-center gap-2 tracking-widest uppercase transition-all">Source Code <i class="fab fa-github"></i></a>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Dec 2025</span>
+                </div>
+            </div>
+
+            <div class="bento-card border-purple-500/10" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex-1">
+                    <div class="text-purple-500 mb-4 text-2xl"><i class="fas fa-rocket"></i></div>
+                    <h4 class="text-xl font-bold mb-3">AI-Driven Lunar Video System</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-4">Fine-tuned FILM models on Chandrayaan-3 data (SSIM > 0.98) for crater detection and terrain analysis.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag border-purple-500/20 text-purple-400/80 bg-purple-500/5">Python</span>
+                        <span class="skill-tag border-purple-500/20 text-purple-400/80 bg-purple-500/5">FILM</span>
+                        <span class="skill-tag border-purple-500/20 text-purple-400/80 bg-purple-500/5">CV</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-end mt-4">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">May 2025</span>
+                </div>
+            </div>
+
+            <div class="bento-card border-green-500/10" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex-1">
+                    <div class="text-green-500 mb-4 text-2xl"><i class="fas fa-chart-line"></i></div>
+                    <h4 class="text-xl font-bold mb-3">Supply Chain Disruption Analysis</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-4">Analyzed 500k+ records using Power BI & DAX to identify logistics bottlenecks and patterns.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag border-green-500/20 text-green-400/80 bg-green-500/5">Power BI</span>
+                        <span class="skill-tag border-green-500/20 text-green-400/80 bg-green-500/5">DAX</span>
+                        <span class="skill-tag border-green-500/20 text-green-400/80 bg-green-500/5">Logistics</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-4">
+                    <a href="https://github.com/Spandycodes25/Supply-Chain-Disruption-Analysis" target="_blank" class="text-[10px] font-bold text-green-500 hover:text-white flex items-center gap-2 tracking-widest uppercase transition-all">Source Code <i class="fab fa-github"></i></a>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Nov 2024</span>
+                </div>
+            </div>
+
+            <div class="bento-card border-indigo-500/10" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="text-indigo-500 mb-4 text-2xl"><i class="fas fa-brain"></i></div>
+                    <h4 class="text-xl font-bold mb-3">Neurodegenerative Disease Detection</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-4">Architecting a medical imaging pipeline for early diagnosis using MRI validation and CNN extraction. Currently optimizing model weights.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="skill-tag border-indigo-500/20 text-indigo-400/80 bg-indigo-500/5">Python</span>
+                        <span class="skill-tag border-indigo-500/20 text-indigo-400/80 bg-indigo-500/5">PyTorch</span>
+                        <span class="skill-tag border-indigo-500/20 text-indigo-400/80 bg-indigo-500/5">Deep Learning</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-end mt-4">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-500 animate-pulse">Ongoing</span>
+                </div>
+            </div>
+        </div>
+
+        <h3 id="research" class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-6 mt-12 px-2 pt-10">Research Work</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bento-card group flex flex-col justify-between" data-aos="fade-up">
+                <div>
+                    <h4 class="text-xl font-bold group-hover:text-blue-500 transition-colors mb-4">DDoS Attack Detection (ANN)</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-6">Artificial Neural Network model for real-time detection in cloud environments. Accepted at Scopus Indexed Conference.</p>
+                </div>
+                <a href="https://doi.org/10.25120/jre.4.2.2024.4170" target="_blank" class="text-xs font-bold text-blue-500 hover:text-white flex items-center gap-2 tracking-widest uppercase transition-all">
+                    Access via DOI <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+            <div class="bento-card group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <h4 class="text-xl font-bold group-hover:text-blue-500 transition-colors mb-4">Underwater Image Enhancement</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-6">Hybrid approach using Grey World Algorithm and 2D Histogram Equalization for light dispersion correction.</p>
+                </div>
+                <a href="https://ieeexplore.ieee.org/document/10714899" target="_blank" class="text-xs font-bold text-blue-500 hover:text-white flex items-center gap-2 tracking-widest uppercase transition-all">
+                    Access via IEEE Xplore <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+            <div class="bento-card group flex flex-col justify-between" data-aos="fade-up">
+                <div>
+                    <h4 class="text-xl font-bold group-hover:text-blue-500 transition-colors mb-4">Plant Health Vision System</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-6">CNN and Genetic Algorithm integration achieving 97% diagnosis accuracy for sustainable crop protection.</p>
+                </div>
+                <a href="https://link.springer.com/chapter/10.1007/978-3-031-69197-3_7" target="_blank" class="text-xs font-bold text-blue-500 hover:text-white flex items-center gap-2 tracking-widest uppercase transition-all">
+                    Access via Springer <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+            <div class="bento-card group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <h4 class="text-xl font-bold group-hover:text-blue-500 transition-colors mb-4">MRI Enhancement (POSHE/CLAHE)</h4>
+                    <p class="text-sm text-zinc-500 leading-relaxed mb-6">Optimizing contrast and tumor visibility using sub-image histogram equalization techniques.</p>
+                </div>
+                <a href="https://ieeexplore.ieee.org/document/10714811" target="_blank" class="text-xs font-bold text-blue-500 hover:text-white flex items-center gap-2 tracking-widest uppercase transition-all">
+                    Access via IEEE Xplore <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+
+        <div id="contact" class="mt-20">
+            <h3 class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-8 px-2">Get In Touch</h3>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                
+                <div class="md:col-span-7 bento-card flex flex-col justify-center" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's build something <span class="text-blue-500">intelligent</span>.</h2>
+                    <p class="text-zinc-400 text-lg leading-relaxed max-w-md">
+                        I am currently looking for internship opportunities for 2026. Whether it's research, data analysis, or developing impactful solutions—let's connect.
+                    </p>
+                    <div class="mt-8">
+                        <a href="mailto:spandan.surdas25@gmail.com" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-lg shadow-blue-500/20">
+                            Start a Conversation <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 flex flex-col gap-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bento-card flex-1">
+                        <h4 class="text-zinc-500 text-xs font-bold uppercase mb-6 tracking-widest">Contact Details</h4>
+                        <div class="space-y-6">
+                            <a href="mailto:spandan.surdas25@gmail.com" class="flex items-center gap-4 group">
+                                <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all"><i class="fas fa-envelope"></i></div>
+                                <div><p class="text-[10px] text-zinc-500 uppercase font-bold">Email</p><p class="text-sm font-bold">spandan.surdas25@gmail.com</p></div>
+                            </a>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-500"><i class="fas fa-phone"></i></div>
+                                <div><p class="text-[10px] text-zinc-500 uppercase font-bold">Phone</p><p class="text-sm font-bold">+1 (857) 313-4740</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bento-card">
+                        <h4 class="text-zinc-500 text-xs font-bold uppercase mb-6 tracking-widest">Digital Footprint</h4>
+                        <div class="flex gap-4">
+                            <a href="https://linkedin.com/in/s-spandan" target="_blank" class="flex-1 bg-zinc-900 border border-zinc-800 py-3 rounded-xl text-center hover:bg-blue-600 hover:border-blue-600 transition-all font-bold text-sm">
+                                <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                            </a>
+                            <a href="https://github.com/Spandy25" target="_blank" class="flex-1 bg-zinc-900 border border-zinc-800 py-3 rounded-xl text-center hover:bg-white hover:text-black transition-all font-bold text-sm">
+                                <i class="fab fa-github mr-2"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="py-12 text-center text-zinc-600 text-[10px] font-mono uppercase tracking-[0.2em]">
+            &copy; 2026 Spandan Surdas • Designed for Data Impact • <a href="https://github.com/Spandy25" target="_blank" class="hover:text-white transition">Visit GitHub</a>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+        
+        // Modal Controls
+        function openResume() { document.getElementById('resumeModal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+        function closeResume() { document.getElementById('resumeModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    </script>
+</body>
+</html>
